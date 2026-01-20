@@ -1,93 +1,104 @@
-# PatiYuva
+# 🐾 PatiYuva – Hayvan Sahiplendirme Web Uygulaması
 
-ASP.NET Core MVC mimarisi kullanılarak geliştirilen bu proje, sahiplendirme sürecini dijital ortama taşıyan kullanıcı dostu bir web uygulamasıdır.
+PatiYuva, hayvan sahipleri ile sahiplenmek isteyen kullanıcıları bir araya getiren,  
+**ASP.NET Core MVC** mimarisi ile geliştirilmiş modern ve sevimli bir hayvan sahiplendirme platformudur.
 
-📌 Proje Amacı
+Bu proje, **MVC Core ile Web Uygulama Geliştirme** dersi kapsamında geliştirilmiştir.
 
-Bu uygulamanın amacı;
+---
 
-Sahiplendirilecek hayvanların listelenmesi
+## 🎯 Projenin Amacı
 
-Kullanıcıların hayvanlar hakkında detaylı bilgi alabilmesi
+- Sahiplendirilmeyi bekleyen hayvanları güvenli ve düzenli bir şekilde listelemek  
+- Hayvan sahiplerinin kendi hayvanlarını sisteme ekleyebilmesini sağlamak  
+- Sahiplenmek isteyen kullanıcıların hayvanları inceleyip iletişime geçebilmesini sağlamak  
+- Sahiplendirme sürecini dijital ve kullanıcı dostu bir yapıya taşımak  
 
-Sahiplenme taleplerinin sistem üzerinden yönetilmesi
+---
 
-Rol bazlı kullanıcı deneyimi sunulması
+## 🧠 Kullanılan Teknolojiler
 
-olarak belirlenmiştir.
+- **ASP.NET Core MVC**
+- **Entity Framework Core**
+- **Code First** yaklaşımı
+- **SQLite** veritabanı
+- **ASP.NET Identity**
+- **Razor View Engine**
+- **HTML5 / CSS3 / Bootstrap**
+- **Responsive Tasarım**
 
-🧩 Kullanılan Teknolojiler
+---
 
-ASP.NET Core MVC
+## 🧩 Mimari Yapı (MVC)
 
-Entity Framework Core
+### 📌 Model
+- `Animal`
+- `ApplicationUser`
+- `AdoptionRequest`
+- Veri doğrulama için **Data Annotations** kullanılmıştır.
 
-SQLite
+### 📌 View
+- Razor View’lar ile kullanıcı arayüzü oluşturulmuştur  
+- Hayvanlar **kart yapısında**, sevimli ve sade bir tasarımla listelenmektedir  
+- Tekrar eden yapılar **Partial View** olarak düzenlenmiştir  
 
-ASP.NET Identity
+### 📌 Controller
+- Kullanıcıdan gelen istekler karşılanır  
+- İş kuralları uygulanır  
+- Model ile View arasında veri aktarımı sağlanır  
 
-Razor View Engine
+---
 
-HTML / CSS / Bootstrap
+## 👥 Kullanıcı Rolleri
 
-🏗️ Mimari Yapı
+Uygulamada **rol bazlı kullanıcı yönetimi** bulunmaktadır:
 
-Proje, MVC (Model – View – Controller) mimarisi esas alınarak geliştirilmiştir.
+- **Hayvan Sahibi**
+  - Hayvan ekleyebilir
+  - Kendi eklediği hayvanları görüntüleyebilir
 
-🔹 Model
+- **Sahiplenmek İsteyen Kullanıcı**
+  - Hayvanları listeleyebilir
+  - Hayvan detaylarını inceleyebilir
+  - Sahip ile iletişime geçebilir
 
-Animal
+Rol yönetimi **ASP.NET Identity** ile sağlanmıştır.
 
-ApplicationUser
+---
 
-AdoptionRequest
+## 🐶 Hayvan Özellikleri
 
-Veri doğrulama işlemleri Data Annotations ile sağlanmıştır.
+Her hayvan için aşağıdaki bilgiler tutulmaktadır:
 
-🔹 View
+- Ad
+- Tür (Kedi, Köpek, vb.)
+- Cins
+- Yaş
+- Cinsiyet
+- Aşı Durumu
+- Açıklama
+- Fotoğraf
+- Sahip Bilgisi
+- İletişim Numarası
 
-Razor View’lar kullanılmıştır
+Fotoğraf yükleme işlemleri **wwwroot** klasörü üzerinden yapılmaktadır.
 
-Hayvanlar kart (card) yapısında listelenmiştir
+---
 
-Partial View’lar ile tekrar eden yapılar ayrıştırılmıştır
+## 🔍 Ek Özellikler
 
-Responsive tasarım ile mobil uyumluluk sağlanmıştır
+- Hayvan adı veya türüne göre **arama**
+- Tür ve yaşa göre **filtreleme**
+- Mobil uyumlu (**responsive**) tasarım
+- Bağış sayfası
+- Kullanıcıya özel menü yapısı
 
-🔹 Controller
+---
+<img width="1900" height="987" alt="proje2" src="https://github.com/user-attachments/assets/22d0e4a5-5a06-437f-9c5d-353e50df1caa" />
+<img width="1897" height="988" alt="proje1" src="https://github.com/user-attachments/assets/f54c9fdb-3dc8-48a0-a714-8dccf5cf5cad" />
+<img width="1903" height="988" alt="proje8" src="https://github.com/user-attachments/assets/ee841df1-0aa3-4d52-b2d0-d5d542691798" />
+<img width="1918" height="991" alt="proje6" src="https://github.com/user-attachments/assets/b34f7ff3-3648-4a3b-8ac4-81f3a40d6d3e" />
+<img width="1900" height="987" alt="proje5" src="https://github.com/user-attachments/assets/00518533-498a-46e3-9455-3043f7cc6e38" />
+<img width="1897" height="988" alt="proje4" src="https://github.com/user-attachments/assets/ca482236-33ef-4f34-96cb-ed322663ef3e" />
+<img width="1918" height="987" alt="proje3" src="https://github.com/user-attachments/assets/dbcc69af-d581-426e-9336-245cc5ddc01e" />
 
-Kullanıcı isteklerini karşılar
-
-İş kurallarını uygular
-
-Model ile View arasındaki veri akışını yönetir
-
-🔐 Kimlik Doğrulama & Yetkilendirme
-
-ASP.NET Identity kullanılmıştır
-
-Rol bazlı yetkilendirme uygulanmıştır:
-
-🐶 Hayvan Sahibi
-
-❤️ Sahiplenmek İsteyen
-
-📂 Veri Tabanı
-
-SQLite kullanılmıştır
-
-Code First yaklaşımı benimsenmiştir
-
-Migration işlemleri ile veritabanı yönetilmiştir
-
-⚙️ Uygulama Özellikleri
-
-Hayvan listeleme ve detay görüntüleme
-
-Sahiplenme talebi oluşturma
-
-Filtreleme ve arama
-
-Fotoğraf yükleme (wwwroot üzerinden)
-
-Kullanıcı kayıt / giriş işlemleri
