@@ -95,8 +95,10 @@ Fotoğraf yükleme işlemleri **wwwroot** klasörü üzerinden yapılmaktadır.
 
 ---
 
-## Youtube Linki
-https://youtu.be/SXOoTEiXKKc
+## 🎥 Proje Tanıtım Videosu
+
+📺 YouTube: https://youtu.be/SXOoTEiXKKc
+
 
 ---
 <img width="1897" height="988" alt="proje1" src="https://github.com/user-attachments/assets/f54c9fdb-3dc8-48a0-a714-8dccf5cf5cad" />
