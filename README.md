@@ -94,6 +94,11 @@ Fotoğraf yükleme işlemleri **wwwroot** klasörü üzerinden yapılmaktadır.
 - Kullanıcıya özel menü yapısı
 
 ---
+
+## Youtube Linki
+https://youtu.be/SXOoTEiXKKc
+
+---
 <img width="1897" height="988" alt="proje1" src="https://github.com/user-attachments/assets/f54c9fdb-3dc8-48a0-a714-8dccf5cf5cad" />
 <img width="1900" height="987" alt="proje2" src="https://github.com/user-attachments/assets/22d0e4a5-5a06-437f-9c5d-353e50df1caa" />
 <img width="1918" height="987" alt="proje3" src="https://github.com/user-attachments/assets/dbcc69af-d581-426e-9336-245cc5ddc01e" />
