@@ -1,0 +1,56 @@
+@model IEnumerable<PatiYuva.Models.Animal>
+
+@{
+    ViewData["Title"] = "Bağışlar";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">🐾 Hayvanlara Bağış Yap</h2>
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Yaptığınız bağışları görmek için <a asp-action="MyDonations">Bağışlarım</a> sayfasına gidebilirsiniz.</p>
+    }
+    else
+    {
+        <p class="mb-4">Lütfen bağış yapmak için giriş yapın veya hayvan seçin:</p>
+        
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                foreach (var animal in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card animal-card h-100">
+                            <div class="card-body text-center">
+                                @if (!string.IsNullOrEmpty(animal.PhotoPath))
+                                {
+                                    <img src="~/uploads/@animal.PhotoPath" class="card-img-top" alt="@animal.Name" style="height: 200px; object-fit: cover;" />
+                                }
+                                else
+                                {
+                                    <img src="~/images/no-image.png" class="card-img-top" alt="No image" style="height: 200px; object-fit: cover;" />
+                                }
+                                
+                                <h5 class="card-title">@animal.Name</h5>
+                                <p class="card-text">
+                                    <strong>Tür:</strong> @animal.Type<br />
+                                    <strong>Yaş:</strong> @animal.Age @(animal.Age > 1 ? "ay" : "ay")<br />
+                                    <strong>Cinsiyet:</strong> @animal.Gender
+                                </p>
+                                
+                                <a asp-action="MakeDonation" asp-route-animalId="@animal.Id" class="btn btn-warning">💰 Bağış Yap</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <p class="text-center">Gösterilecek hayvan bulunmamaktadır.</p>
+                </div>
+            }
+        </div>
+    }
+</div>

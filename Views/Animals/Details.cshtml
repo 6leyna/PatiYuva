@@ -1,0 +1,84 @@
+@model PatiYuva.Models.ViewModels.AnimalViewModel
+@{
+    ViewData["Title"] = "Hayvan Detayı";
+}
+
+<div class="container mt-4">
+    <div class="animal-detail-container">
+        <div class="row">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(Model.PhotoPath))
+                {
+                    <img src="~/uploads/@Model.PhotoPath" class="img-fluid rounded" alt="@Model.Name" style="border-radius: 20px !important;" />
+                }
+                else
+                {
+                    <img src="~/images/no-image.png" class="img-fluid rounded" alt="No image" style="border-radius: 20px !important;" />
+                }
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">🐾 @Model.Name</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <p><strong> Tür:</strong> @Model.Type</p>
+                        @if (!string.IsNullOrEmpty(Model.Breed))
+                        {
+                            <p><strong> Cins:</strong> @Model.Breed</p>
+                        }
+                        @if (Model.Age.HasValue)
+                        {
+                            <p><strong> Yaş:</strong> @Model.Age @(Model.Age > 1 ? "ay" : "ay")</p>
+                        }
+                    </div>
+                    <div class="col-6">
+                        @if (!string.IsNullOrEmpty(Model.Gender))
+                        {
+                            <p><strong> Cinsiyet:</strong> @Model.Gender</p>
+                        }
+                        <p><strong> Aşı Durumu:</strong> @(Model.IsVaccinated ? "✅ Yapıldı" : "❌ Yapılmadı")</p>
+                        <p><strong> Sahip:</strong> @Model.OwnerFullName</p>
+                        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                        {
+                            <p><strong> Telefon:</strong> @Model.PhoneNumber</p>
+                        }
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h5>📋 Açıklama</h5>
+                    <p class="bg-light p-3 rounded">@Model.Description</p>
+                </div>
+                
+                <div class="mt-4">
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Sahiplenici"))
+                    {
+                        <a asp-controller="Adoption" asp-action="Request" asp-route-animalId="@Model.Id" class="btn btn-success btn-lg w-100 mb-2">❤️ Sahiplenme Talebi Oluştur</a>
+                        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                        {
+                            <a href="tel:@Model.PhoneNumber" class="btn btn-info btn-lg w-100 mb-2">📞 Sahip ile İletişime Geç</a>
+                        }
+                        <a asp-controller="Donation" asp-action="MakeDonation" asp-route-animalId="@Model.Id" class="btn btn-warning btn-lg w-100">💰 Bağış Yap</a>
+                    }
+                    else if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg w-100 mb-2">🔐 Sahiplenmek için giriş yapın</a>
+                        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                        {
+                            <a href="tel:@Model.PhoneNumber" class="btn btn-info btn-lg w-100 mb-2">📞 Sahip ile İletişime Geç</a>
+                        }
+                        <a asp-controller="Donation" asp-action="MakeDonation" asp-route-animalId="@Model.Id" class="btn btn-warning btn-lg w-100">💰 Bağış Yap</a>
+                    }
+                    else
+                    {
+                        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+                        {
+                            <a href="tel:@Model.PhoneNumber" class="btn btn-info btn-lg w-100 mb-2">📞 Sahip ile İletişime Geç</a>
+                        }
+                        <p class="text-muted text-center p-3 bg-light rounded mb-2">Sadece sahiplenmek isteyen kullanıcılar sahiplenme talebi oluşturabilir.</p>
+                        <a asp-controller="Donation" asp-action="MakeDonation" asp-route-animalId="@Model.Id" class="btn btn-warning btn-lg w-100">💰 Bağış Yap</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

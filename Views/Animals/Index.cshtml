@@ -1,0 +1,88 @@
+@model IEnumerable<PatiYuva.Models.ViewModels.AnimalViewModel>
+@{
+    ViewData["Title"] = "Sahiplendirme Bekleyen Hayvanlar";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-center mb-0">Sahiplendirme Bekleyen Hayvanlar</h2>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Sahip"))
+        {
+            <a asp-action="Create" class="btn btn-success">Yeni Hayvan Ekle</a>
+        }
+    </div>
+    
+    <!-- Search and Filter Section -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form method="get" asp-action="Index">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" name="searchString" class="form-control" placeholder="Hayvan adı veya türü ara..." value="@ViewBag.CurrentFilter" />
+                    </div>
+                    <div class="col-md-3">
+                        <select name="animalType" class="form-control">
+                            <option value="">Tüm Türler</option>
+                            @foreach (var type in ViewBag.AnimalTypes as List<string>)
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" name="minAge" class="form-control" placeholder="Min Yaş" />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" name="maxAge" class="form-control" placeholder="Max Yaş" />
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary w-100">Filtrele</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Animals Grid -->
+    <div class="row">
+        @foreach (var animal in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 animal-card">
+                    @if (!string.IsNullOrEmpty(animal.PhotoPath))
+                    {
+                        <img src="~/uploads/@animal.PhotoPath" class="card-img-top" alt="@animal.Name" style="height: 200px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <img src="~/images/no-image.png" class="card-img-top" alt="No image" style="height: 200px; object-fit: cover;" />
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@animal.Name</h5>
+                        <p class="card-text">
+                            <strong>Tür:</strong> @animal.Type<br />
+                            @if (!string.IsNullOrEmpty(animal.Breed))
+                            {
+                                <text><strong>Cins:</strong> @animal.Breed<br /></text>
+                            }
+                            @if (animal.Age.HasValue)
+                            {
+                                <text><strong>Yaş:</strong> @animal.Age<br /></text>
+                            }
+                            @if (!string.IsNullOrEmpty(animal.Gender))
+                            {
+                                <text><strong>Cinsiyet:</strong> @animal.Gender<br /></text>
+                            }
+                            <strong>Sahip:</strong> @animal.OwnerFullName
+                        </p>
+                        <div class="mt-auto">
+                            <a asp-action="Details" asp-route-id="@animal.Id" class="btn btn-primary mb-2">Detaylar</a>
+                            <a asp-controller="Donation" asp-action="MakeDonation" asp-route-animalId="@animal.Id" class="btn btn-warning w-100">💰 Bağış Yap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

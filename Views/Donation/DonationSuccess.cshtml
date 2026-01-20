@@ -1,0 +1,40 @@
+@model PatiYuva.Models.ViewModels.DonationViewModel
+@{
+    ViewData["Title"] = "Bağış Başarılı";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center p-5 animal-detail-container">
+                <div class="mb-4">
+                    <span style="font-size: 4rem;">💖</span>
+                </div>
+                <h2 class="text-success mb-3">Bağışınız Başarıyla Gerçekleştirildi!</h2>
+                <p class="lead">@ViewBag.Message</p>
+                
+                <div class="mt-4 text-start">
+                    <h5>Yapılan Bağış Bilgileri:</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Hayvan:</strong> @Model.AnimalName</li>
+                        <li class="list-group-item"><strong>Ad Soyad:</strong> @Model.DonorName</li>
+                        <li class="list-group-item"><strong>E-posta:</strong> @Model.DonorEmail</li>
+                        <li class="list-group-item"><strong>Telefon:</strong> @(string.IsNullOrEmpty(Model.DonorPhone) ? "Girilmemiş" : Model.DonorPhone)</li>
+                        <li class="list-group-item"><strong>Tutar:</strong> @Model.Amount.ToString("C")</li>
+                        <li class="list-group-item"><strong>Banka:</strong> @Model.BankName</li>
+                        <li class="list-group-item"><strong>IBAN:</strong> @Model.Iban.Substring(0, Math.Min(Model.Iban.Length, 10))...</li>
+                        @if (!string.IsNullOrEmpty(Model.Message))
+                        {
+                            <li class="list-group-item"><strong>Mesaj:</strong> @Model.Message</li>
+                        }
+                    </ul>
+                </div>
+                
+                <div class="mt-4">
+                    <a asp-controller="Animals" asp-action="Index" class="btn btn-primary me-2">Diğer Hayvanları Gör</a>
+                    <a asp-controller="Donation" asp-action="MyDonations" class="btn btn-outline-success">Bağışlarımı Göster</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

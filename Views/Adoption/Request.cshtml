@@ -1,0 +1,22 @@
+@model PatiYuva.Models.ViewModels.AdoptionRequestViewModel
+@{
+    ViewData["Title"] = "Sahiplenme Talebi";
+}
+
+<div class="container mt-4">
+    <h2>@ViewBag.AnimalName İçin Sahiplenme Talebi</h2>
+    
+    <form asp-action="Request" method="post">
+        <input type="hidden" name="animalId" value="@ViewBag.AnimalId" />
+        
+        <div class="form-group mb-3">
+            <label for="Message" class="form-label">Mesajınız</label>
+            <textarea name="Message" class="form-control" rows="4" placeholder="Neden bu hayvanı sahiplenmek istiyorsunuz?"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" value="Talep Gönder" class="btn btn-success" />
+            <a asp-controller="Animals" asp-action="Details" asp-route-id="@ViewBag.AnimalId" class="btn btn-secondary">İptal</a>
+        </div>
+    </form>
+</div>

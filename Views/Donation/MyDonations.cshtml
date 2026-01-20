@@ -1,0 +1,42 @@
+@model List<PatiYuva.Models.ViewModels.DonationViewModel>
+@{
+    ViewData["Title"] = "Bağışlarım";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">🐾 Yaptığınız Bağışlar</h2>
+    
+    @if (Model != null && Model.Count > 0)
+    {
+        <div class="row">
+            @foreach (var donation in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card animal-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@(donation.AnimalName)</h5>
+                            <p class="card-text">
+                                <strong>Ad Soyad:</strong> @donation.DonorName<br />
+                                <strong>Tutar:</strong> @donation.Amount.ToString("C")<br />
+                                <strong>Banka:</strong> @donation.BankName<br />
+                                <strong>IBAN:</strong> @donation.Iban.Substring(0, Math.Min(donation.Iban.Length, 10))...<br />
+                                <strong>Tarih:</strong> @DateTime.Now.ToString("dd/MM/yyyy")<br />
+                                @if (!string.IsNullOrEmpty(donation.Message))
+                                {
+                                    <strong>Mesaj:</strong> @donation.Message
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <p>Henüz bağış yapmadınız.</p>
+            <a asp-controller="Animals" asp-action="Index" class="btn btn-primary">Hayvanlara Göz At</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Database files
+*.db
+*.sqlite
+
+# Uploaded files
+wwwroot/uploads/*
+
+# IDE files
+.vs/
+*.user
+*.suo
+
+# NuGet packages
+packages/
+
+# Environment files
+appsettings.Development.json
+
+# Temporary files
+Thumbs.db
+ehthumbs.db
+*.swp
+*~
+.DS_Store
+
+# OS generated files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db

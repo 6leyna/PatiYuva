@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="homepage-hero">
+    <div class="container">
+        <h1 class="hero-title fade-in-up">🐾 PatiYuva'ya Hoş Geldiniz</h1>
+        <p class="hero-subtitle fade-in-up">Sevimli dostlarımızın sahiplenilmesi ve bağışta bulunulması için oluşturulan profesyonel ve sıcak platforma hoş geldiniz.</p>
+        
+        <div class="mt-5 fade-in-up">
+            <a asp-controller="Animals" asp-action="Index" class="btn btn-outline-light btn-lg me-3 hover-lift">🐾 Hayvanlara Göz At</a>
+            <a asp-controller="Donation" asp-action="Index" class="btn btn-warning btn-lg hover-lift">💝 Bağış Yap</a>
+        </div>
+    </div>
+</div>
+
+<div class="features-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">PatiYuva'nın Sunduğu Özellikler</h2>
+            <p class="lead">Hayvanseverler ve sahipler için tasarlanmış kapsamlı hizmetler</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">🐕</div>
+                    <h4 class="mb-3">Hayvan Ekleme</h4>
+                    <p>Sevimli dostlarınızı sisteme ekleyin, sahiplenmek isteyenleri yönetin ve hayvanlarınızın uygunluğunu kontrol edin.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">❤️</div>
+                    <h4 class="mb-3">Sahiplenme Talebi</h4>
+                    <p>İstediğiniz hayvan için sahiplenme talebinde bulunun ve sahiplik sürecini takip edin.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">💝</div>
+                    <h4 class="mb-3">Profesyonel Bağış Sistemi</h4>
+                    <p>Hayvanlarımıza destek olmak için bağış yapın. IBAN ve banka bilgileriyle güvenli ödeme imkanı.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Mutlu Dost</span>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Sahip</span>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <span class="stat-number">2000+</span>
+                <span class="stat-label">Bağış</span>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Gönüllü</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h3 class="display-6 fw-bold mb-4">Neden PatiYuva?</h3>
+            <p class="lead">Hayvanseverler ve sahipler için tasarlanmış, kullanıcı dostu, güvenli ve profesyonel bir platform sunuyoruz.</p>
+            <ul class="list-unstyled">
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Güvenli ve doğrulanmış kullanıcılar</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Kolay navigasyon ve kullanıcı deneyimi</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Profesyonel bağış sistemi</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Gerçek zamanlı hayvan takibi</li>
+            </ul>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg hover-lift">Hemen Katılın</a>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-6 mb-4">
+                    <div class="card hover-lift">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <span style="font-size: 2.5rem;">🐾</span>
+                            </div>
+                            <h5>Hayvanlar</h5>
+                            <p class="text-muted">Sevimli dostlarımız</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card hover-lift">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <span style="font-size: 2.5rem;">❤️</span>
+                            </div>
+                            <h5>Sahiplenme</h5>
+                            <p class="text-muted">Yeni bir dost edinin</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card hover-lift">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <span style="font-size: 2.5rem;">💝</span>
+                            </div>
+                            <h5>Bağış</h5>
+                            <p class="text-muted">Destek olun</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 mb-4">
+                    <div class="card hover-lift">
+                        <div class="card-body text-center">
+                            <div class="mb-3">
+                                <span style="font-size: 2.5rem;">👥</span>
+                            </div>
+                            <h5>Topluluk</h5>
+                            <p class="text-muted">Hayvanseverler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

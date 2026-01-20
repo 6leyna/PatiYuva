@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Talep Sonucu";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Talep Sonucu</h4>
+                    <p class="card-text">@ViewBag.Message</p>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Ana Sayfaya Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
